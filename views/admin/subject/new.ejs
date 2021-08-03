@@ -1,0 +1,19 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container">
+        <div class="card mt-5">
+            <div class="card-header">
+                <h1>Cadastro de Disciplinas:</h1>
+            </div>
+            <div class="card-body">
+                <form action="/admin/save/new" method="POST">
+                    <input class="form-control" name="title" type="text" placeholder="Digite o nome da disciplina">
+                    <br>
+                    <button class="btn btn-success">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>

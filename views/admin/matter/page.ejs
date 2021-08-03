@@ -1,0 +1,34 @@
+<%- include ('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/homenavbar.ejs') %>
+    <div class="container">
+        <hr>
+        <% result.matters.rows.forEach(matter=> { %>
+            <div class="card">
+                <h2 class="card-header"><%= matter.title %></h2>
+                <div class="card-body">
+                    <a href="/<%= matter.slug %>" class="btn btn-primary">Acessar material</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+
+        <div class="row">
+            <div class="col col-12">
+
+                <% if(result.page > 2) {%>
+                    <a href="/matters/page/<%= result.page - 1%>" style="float: left;"><</a>
+                <% } else if (result.page == 2){ %>
+                    <a href="/" style="float: left;"><</a>
+                <% }%>
+                <% if(result.next) {%>
+                    <a href="/matters/page/<%= result.page + 1%>" style="float: right;">></a>
+                <% }%>
+            </div>
+            <hr>
+        </div>
+
+    </div>
+</body>
+<%- include('../../partials/footerhome.ejs')%>
+<%- include ('../../partials/footer.ejs') %>

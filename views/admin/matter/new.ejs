@@ -1,0 +1,40 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <h1>Novo material</h1>
+            </div>
+            <div class="card-body">
+                <form action="/admin/matter/save" method="post">
+                    <input class="form-control" type="text" name="title" placeholder="Digite o titulo aqui">
+                    <br>
+                    <textarea name="body" id="matter" class="form-control" placeholder="Escreva o material aqui"></textarea>
+                    <br>
+                    <label>Escolha a disciplina: </label>
+                    <br>
+                    <select name="subject" class="form-control">
+                        <% subjects.forEach(subject => { %>
+                            <option value="<%= subject.id %>"><%= subject.title %></option>
+                        <% }) %>
+                    </select>
+                    <br>
+                    <br>
+                    <button class="btn btn-success">Adicionar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>
+<script src="/js/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        language: 'pt_BR',
+        selector: "#matter",
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table emoticons'
+        ]
+    })
+</script>

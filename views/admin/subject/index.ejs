@@ -1,0 +1,41 @@
+<%- include('../../partials/header.ejs') %>
+<body>
+    <%- include('../../partials/navbar.ejs') %>
+    <div class="container mt-5">
+        <hr>
+        <h1>Disciplinas</h1>
+        <a href="/admin/subject/new"><button class="btn btn-success">Criar disciplina</button></a>
+        <hr>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Titulo</th>
+                    <th>Slug</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% subjects.forEach(subject => { %>
+                    <tr>
+                        <th><%= subject.id %></th>
+                        <th><%= subject.title %></th>
+                        <th><%= subject.slug %></th>
+                        <th>
+                            <button class="btn btn-warning">
+                                <a href="/admin/subject/edit/<%= subject.id %>" style="text-decoration: none; color: white;">Editar</a>
+                            </button>
+                            <form action="/admin/subject/delete/<%= subject.id %>" style="display: inline;" method="post">
+                                <button class="btn btn-danger">
+                                    Deletar
+                                </button>
+                            </form>
+                        </th>
+                    </tr>
+                    
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+</body>
+<%- include('../../partials/footer.ejs') %>

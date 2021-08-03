@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs')%>
+<body>
+    <%- include('partials/homenavbar.ejs')%>
+    <main class="container">
+        
+        <div class="p-5 rounded mt-5" style="background-color: rgba(218, 215, 215, 0.37)">
+            <h1>Boas-Vindas</h1>
+            <p class="lead">A persistência é o caminho do êxito. 
+            Charles Chaplin</p>
+        </div>
+        <br>
+        <hr>
+        <% matters.forEach(matter => { %>
+            <div class="card">
+                <h2 class="card-header"><%= matter.title %></h2>
+                <div class="card-body">
+                    <a href="/<%= matter.slug %>" class="btn btn-primary">Acessar material</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+    </main>
+
+</body>
+<%- include('partials/footer.ejs')%>
